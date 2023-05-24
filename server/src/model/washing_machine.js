@@ -13,6 +13,11 @@ const OSchemaDefinition = new mongoose.Schema({
 		type: String,
 		default: "a",
 	},
+	name: {
+		type: String
+	},
+	
+	explanation: String,
 	start_time: Number,
 	finish_time: Number,
 
@@ -20,5 +25,9 @@ const OSchemaDefinition = new mongoose.Schema({
 });
 
 const OSchemaOptions = { timestamps: true };
+
 const schema = new mongoose.Schema(OSchemaDefinition, OSchemaOptions);
-module.exports = VocabularyModel;
+
+const Washing_MachineModel = mongoose.model("washing_machine", schema);
+
+module.exports = Washing_MachineModel;
