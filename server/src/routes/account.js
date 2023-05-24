@@ -1,5 +1,5 @@
 const express = require('express');
-const AccountModel = require('../models/account.js');
+const AccountModel = require('../model/account.js');
 const router = express.Router();
 
 class AccountDB {

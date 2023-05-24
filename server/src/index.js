@@ -1,32 +1,50 @@
-import express from "express";
-import dotenv from "dotenv";
+const dotenv = require('dotenv');
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const mongoose = require('mongoose');
+
+const app = express();
+
+const washing_machineRouter = require('./routes/washing_machine');
+const accountRouter = require('./routes/account');
+
+
+app.use(express.json());
+
+const whitelist = ['http://localhost:3000', 'http://172.17.196.164:3000'];
+const corsOptions = {
+    origin: (origin, callback) => {
+        console.log('[REQUEST-CORS] Request from origin: ', origin);
+        if (!origin || whitelist.indexOf(origin) !== -1) callback(null, true)
+        else callback(new Error('Not Allowed by CORS'));
+    },
+    credentials: true,
+}
 
 /* DO NOT REMOVE */
 /* Configure Environment Variables */
+
 if (process.env.ENVIRONMENT === "DEVELOPMENT") {
 	dotenv.config({ path: ".env.development" })
 } else {
 	dotenv.config({ path: ".env.production" })
 }
 
-
-const app = express();
 const port = process.env.EXPRESS_PORT;
 
-app.get("/", (req, res) => {
-	res.send("Hello, World!");
-});
+app.use('/account', accountRouter);
+app.use('/washing_machine', washing_machineRouter);
+
+app.use(cors(corsOptions));
+
+// Connect to MongoDB
+const OMongooseOption = { useNewUrlParser: true, useUnifiedTopology: true };
+mongoose.connect(process.env.MONGO_URI, OMongooseOption).then(
+    () => { console.log("[Mongoose] Connection Complete!") },
+    (err) => { console.log(`[Mongoose] Connection Error: ${ err }`) }
+);
 
 app.listen(port, () => {
 	console.log(`Express Listening @ http://localhost:${ port }`);
 });
-
-
-const mongoose = require('mongoose')
-mongoose.connect("mongodb://127.0.0.1:", {
-	useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(
-	() => { console.log('[Mongoose] is connected') },
-	(err) => { console.log('[Mongoose] is connecting err', err) }
-)

@@ -3,7 +3,7 @@
 // 알림 보내기 (세탁 시간 되면 알람, 끝나면 알람 )
 
 const express = require('express');
-const AccountModel = require('../models/account.js');
+const AccountModel = require('../model/account.js');
 
 const router = express.Router();
 

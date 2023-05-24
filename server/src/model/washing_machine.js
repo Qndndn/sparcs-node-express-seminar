@@ -17,8 +17,10 @@ const OSchemaDefinition = new mongoose.Schema({
 		type: String
 	},
 	
-	explanation: String,
+	feedback: String,
+
 	start_time: Number,
+	
 	finish_time: Number,
 
 	tags: [mongoose.Schema.Types.ObjectId],
