@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const express = require('express');
-const cors = require('cors');
+const cors = require('cors'); // Cross-Origin Resource Sharing  CORS란 자신이 속하지 않은 다른 도메인, 다른 프로토콜, 혹은 다른 포트에 있는 리소스를 요청하는 cross-origin HTTP 요청 방식
 const path = require('path');
 const mongoose = require('mongoose');
 
