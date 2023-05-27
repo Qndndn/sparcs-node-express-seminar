@@ -11,11 +11,11 @@ class AccountDB {
 
     constructor() { console.log("[Account-DB] DB Init Completed"); }
 
-	register = async (id, password, roomnum) => {
+	register = async (id, password, name, roomnum) => {
 		try {
             const user = await AccountModel.findOne({ id }) // 첫번째 요소만 보는 mongo db 검색 명령어
 			if (user !== null) return { success: false, code: 400, data: "Already used id" };
-            const newUser = new AccountModel({ id, password, roomnum });
+            const newUser = new AccountModel({ id, password, name, roomnum });
 			await newUser.save();
 
 			return { success: true };
@@ -46,7 +46,7 @@ class AccountDB {
 
 const AccountDBInst = AccountDB.getInst();
 
-router.post('/register', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const id = await AccountDBInst.insertUser(req.body);
         if (!id) return res.status(400).json({ error: "Nothing found" })

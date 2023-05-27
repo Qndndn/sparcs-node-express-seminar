@@ -3,7 +3,7 @@
 // 알림 보내기 (세탁 시간 되면 알람, 끝나면 알람 )
 
 const express = require('express');
-const AccountModel = require('../model/account.js');
+const Washing_MachineModel = require('../model/washing_machine.js');
 
 const router = express.Router();
 
@@ -26,7 +26,6 @@ class Washing_MachineDB {
 			return false;
 		}
 	};
-
 
 	reservation = async (item) => {
         const { name, start_time, finish_time, feedback } = item;
