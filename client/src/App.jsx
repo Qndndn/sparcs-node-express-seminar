@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -8,27 +6,38 @@ function App() {
 
   return (
     <>
-      <p>환경변수 쓰기 - client: { process.env.TEST }</p>
+    <header>
+      <a href="https://sparcs.org" target="_blank" rel="noreferrer">
+          <img src={sparcsLogo} className="logo toplogo" alt="React logo" />
+      </a>
+      
+    </header>
+      <p>환경변수 쓰기 - client:</p>
       <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+        <a href="https://sparcs.org" target="_blank" rel="noreferrer">
+          <img src={sparcsLogo} className="logo" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        
       </div>
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
+        {/* <p>
           Edit <code>src/App.jsx</code> and save to test HMR
+        </p> */}
+        <p>
+          hehe
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click on the days below
       </p>
+    <Calendar />
+    <footer>
+      <p>footer</p>
+    </footer>
     </>
   )
 }
