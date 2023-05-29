@@ -58,6 +58,7 @@ router.post('/signup', async (req, res) => {
 
 router.post("/login", async (req, res) => {
     try {
+            console.log(1)
             const id = req.body.id;
             const password = req.body.password;
             if (!id) return res.status(400).json({ error: "Empty id" })

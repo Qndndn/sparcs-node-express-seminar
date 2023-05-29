@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const SAPIBase = "http://localhost:8081";
+const SAPIBase = "http://172.17.196.164:8084";
 
 const LoginPage = () => {
   const movePage = useNavigate();
@@ -27,7 +27,7 @@ const LoginPage = () => {
         Id:{" "}
         <input type="text" id="id" onChange={(e) => setId(e.target.value)}/>
         Password:{" "}
-        <input type="text" id="passward" onChange={(e) => setPassword(e.target.value)}/>
+        <input type="text" id="password" onChange={(e) => setPassword(e.target.value)}/>
         <br />
         <button type="button" id="login" onClick={login}>Login</button>
       </div>
