@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 
 const SAPIBase = "http://localhost:8081";
-const movePage = useNavigate();
 
 const LoginPage = () => {
+  const movePage = useNavigate();
+
   const [id, setId] = useState("")
   const [password, setPassword] = useState("")
 

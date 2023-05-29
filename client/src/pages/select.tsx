@@ -2,11 +2,11 @@ import React from "react";
 import axios from "axios";
 import { useNavigate }  from "react-router-dom";
 import { useInterval } from "../tools/interval";
-import "./css/home.css";
+// import "../components/css/home.css";
 import { SAPIBase } from "../tools/api";
 
 
-const HomePage = (props: {}) => {
+const SelectPage = (props: {}) => {
   const navigate = useNavigate();
   const [ BServerConnected, setBServerConnected ] = React.useState<boolean>(false);
 
@@ -57,4 +57,4 @@ const HomePage = (props: {}) => {
   )
 };
 
-export default HomePage;
+export default SelectPage;

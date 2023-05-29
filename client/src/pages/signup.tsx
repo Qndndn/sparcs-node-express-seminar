@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const SAPIBase = "http://localhost:8081";
-const movePage = useNavigate();
 
 const SignupPage = () => {
+  const movePage = useNavigate();
+
 	const [id, setId] = useState("");
 	const [password, setPassword] = useState("");
     const [name, setName] = useState("");

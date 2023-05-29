@@ -2,11 +2,11 @@ import React from "react";
 import axios from "axios";
 import { SAPIBase } from "../tools/api";
 import Header from "../components/header";
-import "./css/feed.css";
+// import "../components/css/feed.css";
 
 interface IAPIResponse  { _id: string, title: string, content: string }
 
-const FeedPage = (props: {}) => {
+const ReservationPage = (props: {}) => {
   const [ LAPIResponse, setLAPIResponse ] = React.useState<IAPIResponse[]>([]);
   const [ NPostCount, setNPostCount ] = React.useState<number>(0);
   const [ SNewPostTitle, setSNewPostTitle ] = React.useState<string>("");
@@ -95,4 +95,4 @@ const FeedPage = (props: {}) => {
   );
 }
 
-export default FeedPage;
+export default ReservationPage;
