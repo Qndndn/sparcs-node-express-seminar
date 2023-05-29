@@ -14,7 +14,7 @@ const LoginPage = () => {
   const login = () => {
     axios.post( SAPIBase + '/account/login', { id, password } )
       .then(()=>{
-        movePage("../"); // 로그인 성공시 페이지 이동 ?
+        movePage("../404"); // 로그인 성공시 페이지 이동 ?
       })
       .catch((e)=>console.log(e));
   };
@@ -31,7 +31,7 @@ const LoginPage = () => {
         <br />
         <button type="button" id="login" onClick={login}>Login</button>
       </div>
-      
+
       <div className="signup">
 				<button id="signup" onClick={() => movePage("../signup")}>Sign Up</button>
 			</div>
