@@ -11,7 +11,6 @@ const accountRouter = require('./routes/account');
 
 
 app.use(express.json());
-
 const whitelist = ['http://localhost:3000', 'http://172.17.196.164:3000'];
 const corsOptions = {
     origin: (origin, callback) => {
@@ -39,6 +38,8 @@ app.use('/washing_machine', washing_machineRouter);
 app.use(cors(corsOptions));
 
 // Connect to MongoDB
+
+
 const OMongooseOption = { useNewUrlParser: true, useUnifiedTopology: true };
 mongoose.connect(process.env.MONGO_URI, OMongooseOption).then(
     () => { console.log("[Mongoose] Connection Complete!") },

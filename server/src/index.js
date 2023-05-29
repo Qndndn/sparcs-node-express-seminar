@@ -12,7 +12,7 @@ const accountRouter = require('./routes/account');
 
 app.use(express.json());
 
-const whitelist = ['http://localhost:8083', 'http://172.17.196.164:8083'];
+const whitelist = ['http://localhost:8084', 'http://172.17.196.164:8084'];
 const corsOptions = {
     origin: (origin, callback) => {
         console.log('[REQUEST-CORS] Request from origin: ', origin);
