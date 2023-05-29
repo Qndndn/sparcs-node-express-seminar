@@ -13,8 +13,12 @@ const LoginPage = () => {
 
   const login = () => {
     axios.post( SAPIBase + '/account/login', { id, password } )
-      .then(()=>{
-        movePage("../404"); // 로그인 성공시 페이지 이동 ?
+      .then((data)=>{
+      alert(data.status)
+      if (data.status==200) {movePage("../404");}
+      else {
+        alert("로그인 실패")
+      } // 로그인 성공시 페이지 이동 ? 
       })
       .catch((e)=>console.log(e));
   };
@@ -26,6 +30,7 @@ const LoginPage = () => {
       <div className={"login"}>
         Id:{" "}
         <input type="text" id="id" onChange={(e) => setId(e.target.value)}/>
+        <br/>        
         Password:{" "}
         <input type="text" id="password" onChange={(e) => setPassword(e.target.value)}/>
         <br />
