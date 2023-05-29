@@ -30,10 +30,12 @@ class AccountDB {
 		try {
 			const user = await AccountModel.findOne({ id });
 			if (user === null) return { success: false, code: 400, data: "Nothing found id" };
-
-			const result = bcrypt.compareSync(password, user.password);
-			if (!result) return { success: false, code: 400, data: "Incorrect password" };
-
+            const ID = await AccountModel.findOne({ accountID: id });
+            if (ID.password==password) {
+                console.log("[Account-DB] Login Success");
+                return { success: true, code: 200 };
+              }
+            else return { success: false };
 		} catch (e) {
 			console.log(`[AccountDB] login call failed: DB Error - ${ e }`);
 
@@ -58,12 +60,12 @@ router.post('/signup', async (req, res) => {
 
 router.post("/login", async (req, res) => {
     try {
-            console.log(1)
             const id = req.body.id;
             const password = req.body.password;
             if (!id) return res.status(400).json({ error: "Empty id" })
             else if (!password) return res.status(400).json({ error: "Empty password" });
-            else return res.status(200).json({ isOK: true })
+            if (login.success.code == 200) return res.status(200)
+            else return res.status(400) 
     } catch (e) {
             return res.status(500).json({ error: e });
     }
