@@ -14,6 +14,7 @@ const SignupPage = () => {
 
 
   const signup = () => {
+    movePage("../login");
     axios.post( SAPIBase + '/account/signup', { id, password, name, roomnum } )
       .then(()=>{
         window.alert("Your account is successfully created. Please login again.");
@@ -29,10 +30,13 @@ const SignupPage = () => {
       <div className={"signup"}>
         Id:{" "}
         <input type="text" id="id" onChange={(e) => setId(e.target.value)}/>
+        <br/>
         Password:{" "}
         <input type="text" id="passward" onChange={(e) => setPassword(e.target.value)}/>
+        <br/>
         Name:{" "}
         <input type="text" id="name" onChange={(e) => setName(e.target.value)}/>
+        <br/>
         Roomnum:{" "}
         <input type="text" id="roomnum" onChange={(e) => setRoomnum(e.target.value)}/>
         <br />

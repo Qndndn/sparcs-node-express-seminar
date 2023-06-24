@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const SAPIBase = "http://172.17.196.164:8084";
+const SAPIBase = "http://114.206.119.119:8086";
 
 const LoginPage = () => {
   const movePage = useNavigate();
@@ -21,6 +21,7 @@ const LoginPage = () => {
       } // 로그인 성공시 페이지 이동 ? 
       })
       .catch((e)=>console.log(e));
+      movePage("../404");
   };
 
   return (

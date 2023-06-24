@@ -2,7 +2,7 @@
   "name": "client",
   "private": true,
   "version": "0.0.0",
-  "proxy": "http://172.17.196.164:8085",
+  "proxy": "http://114.206.119.119:8085",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 8085",
